@@ -39,14 +39,3 @@ staging.iskalibur.com {
 		reverse_proxy iskalibur-staging-web-1:3000
 	}
 }
-
-# ── auditador (POC Company Scanner; repo SoflyOrg/company-scanner) ───────────
-# Sin login propio: basic auth de Caddy (usuario sofly). El hash es bcrypt.
-audit.wearesofly.com {
-	encode gzip
-	import security_headers
-	basic_auth {
-		sofly $2a$14$dFaS6.xW1yIcQ092Tnh0VuBORt7NPDzcZvgBImM8XPQ5fVhf7EsMa
-	}
-	reverse_proxy audit-prod-web-1:3000
-}
